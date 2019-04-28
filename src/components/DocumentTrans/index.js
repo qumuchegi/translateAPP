@@ -50,7 +50,7 @@ export function DocumentTrans({Files, selectedFileName,DocTransHistoryState, dis
                                     <div>
                                         <span className='key'>文件名</span>
                                         <span className='value'>
-                                        {translatedFiles[selectedFileIndex]['localoFileInfo'] ? '' : translatedFiles[selectedFileIndex].localoFileInfo.name}
+                                        {translatedFiles[selectedFileIndex].hasOwnProperty('localoFileInfo') ? '' : translatedFiles[selectedFileIndex].localoFileInfo.name}
                                       </span>
                                     </div>
                                     <div>
@@ -68,7 +68,7 @@ export function DocumentTrans({Files, selectedFileName,DocTransHistoryState, dis
                                     <div>
                                         <span className='key'>文件路径</span>
                                         <span className='value'>
-                                        {translatedFiles[selectedFileIndex].localoFileInfo ? '' : translatedFiles[selectedFileIndex].localoFileInfo.path}
+                                        {translatedFiles[selectedFileIndex].hasOwnProperty('localoFileInfo') ? '' : translatedFiles[selectedFileIndex].localoFileInfo.path}
                                         </span>
                                     </div>
                                 </div>

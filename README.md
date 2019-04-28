@@ -1,11 +1,21 @@
-# 论文翻译助手
-- 功能：支持段落翻译、PDF文档翻译（限制3000字）
-- 技术：首次使用 webpack 构建打包，前端页面框架使用 React ，可以作为 Electron 的渲染进程引入 electron API（ 关于怎么在 React 中引入 electron ,下面的问题记录有说明 ）
+# 论文翻译助手（electron应用）
+
+- **功能**：支持段落翻译、PDF文档翻译（限制3000字）,由于[API](http://api.yeekit.com/mannual.php) 的局限性,只支持中英文互译。
+- **技术**：首次使用 webpack 构建打包，前端页面框架使用 React ，可以作为 Electron 的渲染进程引入 electron API（ 关于怎么在 React 中引入 electron ,下面的问题记录有说明 ）
+
+- **应用预览**：
+
+![段落翻译](./imgs/paratrans.png)
+![文档翻译](./imgs/doctrans.png)
 
 ## 开发
+
 >`git clone https://github.com/qumuchegi/translateAPP.git` (下载仓库)
+
 >`npm install` (安装依赖)
+
 >`npm run start` (开启 webpack-devServer)
+
 >`npm run electron-start` (启动 electron 进程)
 
 ## 问题记录：
@@ -32,10 +42,7 @@ preload: path.join(__dirname,'./dist/render.js' )
                 此脚本都可以访问所有Node API 脚本路径为文件的绝对路径。 
                 */
 ```
-```js
-//index.html:
-
-```
+ 
 因为在 Electron 预加在的脚本可以引入 Node API，也就可以引入 Electron 模块，现在在React组件中可以如下使用electron
 ```js
 // App.js:
