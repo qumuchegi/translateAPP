@@ -79,10 +79,11 @@ export function ParagraphTrans({dispatchPTrans,ParaTransHistoryState}){
                 showDialog ?
                 <Dialog
                     title="翻译出错，字数大于3000"
+                    id='dialog'
                     message="请将字数限制在3000字以内"
                     icon={renderDialogIcon()}
-                    verticalAlignment= "top"
-                    horizontalAlignment='center'
+                    verticalAlignment= "center"
+                    horizontalAlignment="center"
                     buttons={[
                     <Button color="blue" onClick={() => setShowDialog(false)}>确认</Button>,
                     ]}
@@ -139,16 +140,16 @@ export function ParagraphTrans({dispatchPTrans,ParaTransHistoryState}){
                 </span>
              </div>
              <div>
-
-            
              {
                  ParaTransHistoryState ?
                  ParaTransHistoryState.map( (ele,i) => 
                  <div key={i} className='trans-item'>
-                    <div className='trans-direction'>
-                        <span>{ele.fromLang==='en'? '英文':'中文'}</span>
-                        译
-                        <span>{ele.toLang==='en'? '英文':'中文'}</span>
+                    <div>
+                        <div  className='trans-direction'>
+                            <span>{ele.fromLang==='en'? '英文':'中文'}</span>
+                            译
+                            <span>{ele.toLang==='en'? '英文':'中文'}</span>
+                        </div>
                         <div    className='show-to-pannel' 
                                 onClick={()=>
                                 showToPannel(ele.from, 
@@ -158,7 +159,7 @@ export function ParagraphTrans({dispatchPTrans,ParaTransHistoryState}){
                                     ele.newTransRes[0].text
                                     )}>
                                 <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
-                                <span >在翻译面板上显示</span>
+                                <span >翻译面板显示</span>
                         </div>
                         <div className='showTo-btn'>
                             <span>译文</span>

@@ -56,22 +56,21 @@ function App() {
  
   }, [])
 
-  function openFile(e){
-    let file = fileInput.current.files[0]
+  function openFile(){
+    let file = fileInput.current.files[0]  
+    console.log( file )
     if(file){
-     
-      let files = [...new Set([...Files])]
-      files.push(file)
+      let files = [...new Set([...Files,file])]
       setFiles(files)
     }
   }
-  async function docTrans(file){
+  async function docTrans(file,srcLang,toLang){
     if( filesTransed.some(ele => ele.localoFileInfo.name===file.name) ){
       let selected = filesTransed.filter(e=>e.localoFileInfo.name===file.name)[0].localoFileInfo.name
       setSelectedFileName(selected)
       return  setTranslate(translate_Type.document) 
     }
-    ipcRenderer.send('transNewDoc', {from:'zh',to:'en',filePath:file.path})
+    ipcRenderer.send('transNewDoc', {from:srcLang,to:toLang,filePath:file.path})
     await ipcRenderer.on('transDocRes',(event, result)=>{
       console.log(result)
      
@@ -87,7 +86,14 @@ function App() {
       setTranslate(translate_Type.document)
     })
   }
-
+  function deleteFile(name){
+    let files = [...Files]
+    let transedFiles = [...filesTransed]
+    transedFiles = transedFiles.filter(ele=>ele.localoFileInfo.name!==name) 
+    files = files.filter(e=>e.name!==name)
+    setFilesTransed(transedFiles)
+    setFiles(files)
+  }
   return (
     <div className="App">
         <header>
@@ -100,7 +106,7 @@ function App() {
               <input type='file' 
                      name='file' 
                      id='file-input'
-                     onChange={(e)=>openFile(e)}
+                     onChange={()=>openFile()}
                      ref={fileInput}
               />
             </div>
@@ -140,11 +146,16 @@ function App() {
                   <div key={uuid()} className='file-item' 
                        onMouseOver={()=>setMouseOverFile(i)} 
                        onMouseOut={()=>setMouseOverFile(-1)}>
-                      <i class="fa fa-file" aria-hidden="true"></i>
+                      <i className="fa fa-file" aria-hidden="true"></i>
+                      <i className="fa fa-times" aria-hidden="true" onClick={()=>deleteFile(ele.name)}></i>
                       {ele.name}
                       <div className={mouseOverFile===i ? 'file-over':'file-notover'}>
-                        <span onClick={()=>docTrans(ele)}>
-                          翻译
+                        <span onClick={()=>docTrans(ele,'en','zh')}>
+                          英译中
+                          <i className="fa fa-globe" aria-hidden="true"></i>
+                        </span>
+                        <span onClick={()=>docTrans(ele,'zh','en')}>
+                          中译英
                           <i className="fa fa-globe" aria-hidden="true"></i>
                         </span>
                       </div>

@@ -89,11 +89,16 @@
     align-items: center;
     
 }
+.trans-item>div{
+    align-self: flex-start
+}
 .trans-direction{
     align-self: flex-start;
     flex:1;
     color: rgba(251,167,0);
-    font-size: 0.7em
+    font-size: 0.7em;
+    text-align: center;
+  
 }
 .trans-content{
     flex:6;
@@ -106,12 +111,12 @@
     flex:1;
     padding: 0;
     color:black;
-    font-size: initial;
     align-self: center;
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-size: 0.7em;
+    margin:0.5em
 }
 .showTo-btn>div:nth-of-type(1){
     box-sizing: border-box;
@@ -148,6 +153,7 @@
     color:black;
     padding: 2px;
     display: flex;
+    font-size: small;
     justify-content: center;
     border-radius: 3px;
     align-items: center;
@@ -168,4 +174,13 @@
 }
 #clear-history-btn:hover #clear-description{
     display: inline-block;
+}
+#dialog{
+    background-color: rgba(247,250,253);
+    width:25em;
+    position: fixed;
+    top:5em;
+    left:30%;
+    padding:2em;
+    border-radius: 2px;
 }

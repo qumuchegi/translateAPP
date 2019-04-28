@@ -105,7 +105,10 @@ header #about:hover{
 }
 #files-bar .file-item{
   padding:1%;
-  border:solid 1px gray
+ 
+}
+#files-bar .file-item:hover{
+  background-color: #bbb
 }
 .file-notover{
   visibility: hidden;
@@ -114,11 +117,16 @@ header #about:hover{
 .file-over{
  visibility: visible;
  position: relative;
+ color:rgb(144, 111, 187);
  right: 1%;
  bottom: 1%;
- color: rgba(112,23,231);
  text-align: right
 }
 .file-over:hover{
-  color:rgb(144, 111, 187);
+ 
+  color: rgba(112,23,231);
+}
+.fa-times{
+  float: right;
+
 }
