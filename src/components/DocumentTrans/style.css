@@ -1,0 +1,104 @@
+ 
+#doc-trans-body #header{
+   background-color: #999;
+   color:white;
+   display: flex;
+   position: sticky;
+   top:0;
+   justify-content: flex-start;
+   flex-wrap: nowrap;
+   padding-top:0.5%;
+   padding-bottom: 0;
+   padding-right: 1%;
+   font-size: 0.8em;
+   overflow-x: scroll;
+}
+#doc-trans-body #header .file-name{
+    display: block;
+    margin-left: 1%;
+    padding:1%;
+    width:6em;
+    border-top: solid 1.4px #444;
+    border-left: solid 1.4px #444;
+    border-right: solid 1.4px #444;
+
+}
+#doc-trans-body #header  .slected-file-name{
+    margin-left: 1%;
+    padding:1%;
+    width:6em;
+    background-color: white;
+    color:black;
+}
+ 
+#doc-trans-body #trans-result{
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch
+}
+#doc-trans-body #trans-result>div{
+    box-sizing: border-box;
+    width:50%;
+    padding:3%
+}
+#doc-trans-body #trans-result>div>h5{
+    display: flex;
+    justify-content: space-between
+}
+.page-btn-hidden{
+    visibility: hidden;
+}
+.page-btn-show{
+    visibility: visible;
+    background-color: rgba(23,45,67);
+    color:white;
+    border-radius: 3px;
+    padding:3px;
+    margin:2px;
+}
+.page-btn-show:hover{
+    background-color: rgb(46, 83, 119);
+}
+#download-btn:hover,#sourcefile-info-btn:hover{
+    opacity: 0.7;
+
+}
+#hidden-info{
+    display: none;
+
+}
+ 
+#sourcefile-info-btn:hover #hidden-info{
+    display: block;
+    position: relative;
+    top:0.2em;
+    font-weight: lighter;
+    width:20em;
+    padding: 0.5em;
+    border-radius: 4px;
+    background-color: #eee
+
+}
+.key{
+    font-weight: bold;
+    margin-right: 2em
+}
+.pdf-view{
+    z-index: -11;
+    border:solid 2px #888
+}
+ #transed-res{
+     overflow: scroll;
+ }
+ #pdf-loading{
+     margin:35%;
+ }
+ .source-chacters,.transed-chacters{
+     height: 20em;
+     overflow: scroll;
+     padding:2em;
+     line-height: 2em;
+     background-color: #ddd;
+     border-radius: 2px;
+ }
+ 

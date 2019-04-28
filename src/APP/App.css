@@ -1,0 +1,124 @@
+html{
+  font-size: 1rem;
+}
+body{
+  padding:0;
+  margin: 0;
+  cursor: pointer;
+}
+.App{
+  padding: 0
+}
+header{
+  margin: 0;
+  box-sizing: border-box;
+  height: 3.4rem;
+  padding: 0.2em 1em;
+  background-color: rgb(36,36,36);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center
+}
+header #buttons{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex:1;
+   
+}
+header #buttons #open-file{
+   background-color: rgb(255,72,28);
+   color:white;
+   padding:0.1em 0.3em;
+   border-radius: 3px;
+   
+}
+header #buttons #open-file:hover{
+  background-color: rgb(248, 32, 4);
+}
+header #buttons #open-history{
+   background-color: rgb(100, 91, 89);
+   margin-left: 0.3em;
+   color:white;
+   padding:0.1em 0.3em;
+   border-radius: 3px;
+}
+header #buttons #open-history:hover{
+  background-color: rgb(82, 77, 75) 
+}
+header h3{
+  flex: 4;
+  text-align: center;
+  padding:0.5em;
+  margin: 0;
+  color:white
+}
+header #about{
+  flex:1;
+  text-align: right;
+  color:white
+}
+header #about:hover{
+  color:rgb(255,72,28);
+}
+#side-and-conten{
+   width:100%
+}
+#side-bar{
+  background-color: #eee;
+  float:left;
+  position: absolute;
+  width:15%;
+  top:3.4rem;
+  bottom: 0;
+  left:0;
+  text-align: center;
+  border-right: solid 1px #888
+}
+#side-bar .fa{
+  margin-right: 5%
+}
+#side-bar>div{
+  padding:1em;
+}
+#side-bar>div:hover{
+   
+}
+#side-bar .selected{
+  background-color: #ccc
+}
+#route-content{
+  position: absolute;
+  top:3.4rem;
+  right:0;
+  bottom: 0;
+  width:85%;
+  overflow: scroll
+}
+#file-input{
+  display: none
+}
+#files-bar{
+  border-top:solid 1.2px #aaa;
+  text-align: left;
+  font-size: 0.8em;
+}
+#files-bar .file-item{
+  padding:1%;
+  border:solid 1px gray
+}
+.file-notover{
+  visibility: hidden;
+  
+}
+.file-over{
+ visibility: visible;
+ position: relative;
+ right: 1%;
+ bottom: 1%;
+ color: rgba(112,23,231);
+ text-align: right
+}
+.file-over:hover{
+  color:rgb(144, 111, 187);
+}
