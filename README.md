@@ -1,7 +1,12 @@
 # 论文翻译助手
-支持段落翻译、PDF文档翻译（限制3000字）
+- 功能：支持段落翻译、PDF文档翻译（限制3000字）
+- 技术：首次使用 webpack 构建打包，前端页面框架使用 React ，可以作为 Electron 的渲染进程引入 electron API（ 关于怎么在 React 中引入 electron ,下面的问题记录有说明 ）
 
-
+## 开发
+>`git clone https://github.com/qumuchegi/translateAPP.git` (下载仓库)
+>`npm install` (安装依赖)
+>`npm run start` (开启 webpack-devServer)
+>`npm run electron-start` (启动 electron 进程)
 
 ## 问题记录：
 
