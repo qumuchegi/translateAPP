@@ -4,10 +4,13 @@ import './App.css';
 import {If,Else,Then} from 'react-if';
 import {ParagraphTrans} from '../components/ParagraphTrans';
 import {DocumentTrans} from '../components/DocumentTrans';
+import { ipcRenderer } from 'electron'
+ 
+/*
 const electron = window.electron;
 const {ipcRenderer} = electron;
 console.log('ipcRenderer',ipcRenderer)
-
+*/
 
 import uuid from 'uuid'
 
@@ -143,7 +146,7 @@ function App() {
               }</h3>
               {
                 Files.map((ele,i) => 
-                  <div key={uuid()} className='file-item' 
+                  <div key={i+ele.name} className='file-item' 
                        onMouseOver={()=>setMouseOverFile(i)} 
                        onMouseOut={()=>setMouseOverFile(-1)}>
                       <i className="fa fa-file" aria-hidden="true"></i>

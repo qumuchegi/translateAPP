@@ -20,16 +20,17 @@ app.on('ready',()=>{
             minWidth:1200, minHeight:800,
             
             webPreferences:{
-                webSecurity:false,
-               
-                preload: path.join(__dirname,'./dist/render.js' ) 
-                 
-                // './dist/electronRender.bundle.js'
-
+                webSecurity:false,// 关掉浏览器的同源策略，使其可以跨域
+                preload: path.join(__dirname,'./render.js' ) 
                 /*
-                 preload String (可选) 
-                 -在页面运行其他脚本之前预先加载指定的脚本 无论页面是否集成Node, 
-                 此脚本都可以访问所有Node API 脚本路径为文件的绝对路径。 
+                 preload String (可选)  
+                 -在页面运行其他脚本之前预先加载指定的脚本 无论页面是否集成 Node, 
+                 此脚本可以访问所有 Node API ，脚本路径为文件的绝对路径。
+
+                 由于在本项目 webpack 将 JS 构建为在 浏览器端运行的代码，所以 JS 文件是运行在浏览器页面，
+                 故不是 Electron 的渲染进程，所以不能访问 Node，
+                 也就不能访问 Electron，如果要在页面中 使用 electron 的API，可以把 electron 模块 作为全局
+                 变量引入到浏览器环境，preload 就可以加载这样的引入 electron 的脚本
                 */
              
             },

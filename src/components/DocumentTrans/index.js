@@ -11,10 +11,10 @@ export function DocumentTrans({Files, selectedFileName,DocTransHistoryState, dis
     const [numPages, setNumPage] = useState(null)
     let [pageNumber, setPageNumber] = useState(1)
 
-    useEffect(() => {
+    useEffect(() => {    
        setTranslatedFiles(Files)
        console.log(Files)
-    }, [Files,selectedFileName])
+    }, [Files])
 
     function onDocumentLoadSuccess({ numPages }) {
         setNumPage( numPages );
@@ -50,7 +50,7 @@ export function DocumentTrans({Files, selectedFileName,DocTransHistoryState, dis
                                     <div>
                                         <span className='key'>文件名</span>
                                         <span className='value'>
-                                        {translatedFiles[selectedFileIndex].hasOwnProperty('localoFileInfo') ? '' : translatedFiles[selectedFileIndex].localoFileInfo.name}
+                                        {translatedFiles[selectedFileIndex].localoFileInfo === undefined  ? '' : translatedFiles[selectedFileIndex].localoFileInfo.name}
                                       </span>
                                     </div>
                                     <div>
@@ -68,7 +68,7 @@ export function DocumentTrans({Files, selectedFileName,DocTransHistoryState, dis
                                     <div>
                                         <span className='key'>文件路径</span>
                                         <span className='value'>
-                                        {translatedFiles[selectedFileIndex].hasOwnProperty('localoFileInfo') ? '' : translatedFiles[selectedFileIndex].localoFileInfo.path}
+                                        {translatedFiles[selectedFileIndex].localoFileInfo === undefined  ? '' : translatedFiles[selectedFileIndex].localoFileInfo.path}
                                         </span>
                                     </div>
                                 </div>
@@ -101,6 +101,7 @@ export function DocumentTrans({Files, selectedFileName,DocTransHistoryState, dis
                             null
                         }
                     </div>
+                    <span>{translatedFiles.length > 0 && translatedFiles[selectedFileIndex].localoFileInfo !==undefined ? translatedFiles[selectedFileIndex].localoFileInfo.path:0}</span>
                </div>
                <div id='transed-res'>
                  <h5>
